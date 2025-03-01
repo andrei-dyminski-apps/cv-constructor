@@ -18,6 +18,6 @@ export default [
     rules: {
       'react/react-in-jsx-scope': 'off',
     },
-    ignores: ['.idea/**/*', '.react-router/**/*'],
+    ignores: ['.idea/', '.react-router/'],
   },
 ];
