@@ -1,5 +1,5 @@
 import type { Route } from './+types/home';
-import { Welcome } from '../welcome/welcome';
+import { Aside } from '~/components/aside';
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -9,5 +9,9 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
-  return <Welcome />;
+  return (
+    <div className="flex w-[240mm] mx-auto my-2.5 grow">
+      <Aside />
+    </div>
+  );
 }

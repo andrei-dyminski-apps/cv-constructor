@@ -9,6 +9,7 @@ import {
 
 import type { Route } from './+types/root';
 import './app.css';
+import { data, DataContext } from './providers/data';
 
 export const links: Route.LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -29,11 +30,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>CV Andrei Dyminski</title>
         <Meta />
         <Links />
       </head>
-      <body className="w-[240mm] mx-auto my25">
-        {children}
+      <body className="p-0 absolute top-0 left-0 w-full h-full flex flex-col">
+        <DataContext.Provider value={data}>{children}</DataContext.Provider>
         <ScrollRestoration />
         <Scripts />
       </body>
