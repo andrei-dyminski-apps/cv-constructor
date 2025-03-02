@@ -1,6 +1,7 @@
 import type { Route } from './+types/home';
-import { Aside } from '~/components/aside';
+import { Aside } from '~/components/aside/aside';
 import { useData } from '~/hooks/data';
+import { Main } from '~/components/main/main';
 
 export function meta({}: Route.MetaArgs) {
   const { personal } = useData();
@@ -11,8 +12,9 @@ export function meta({}: Route.MetaArgs) {
 
 export default function Home() {
   return (
-    <div className="mx-auto my-2.5 flex w-[240mm] grow">
+    <div className="mx-auto flex h-[297mm] w-[210mm] grow">
       <Aside />
+      <Main />
     </div>
   );
 }

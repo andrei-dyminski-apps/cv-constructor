@@ -9,7 +9,7 @@ export const SvgIcon = ({
   name: string;
   className?: string;
 }) => {
-  const importIcon = icons[`../assets/icons/${name}.svg`];
+  const importIcon = icons[`../assets/icons/${name.toLowerCase()}.svg`];
 
   if (!importIcon) return null;
 

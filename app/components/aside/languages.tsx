@@ -1,4 +1,4 @@
-import { AsideSection } from '~/components/aside-section';
+import { AsideSection } from '~/components/aside/aside-section';
 import { useData } from '~/hooks/data';
 
 export const Languages = () => {
