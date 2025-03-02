@@ -10,7 +10,7 @@ export const Contacts = () => {
         <ul className="flex flex-col gap-2">
           {Object.entries(contacts).map(([key, value]) => (
             <li key={key} className="flex items-center gap-2">
-              <SvgIcon name={key} className="w-5 h-5 fill-white" /> {value}
+              <SvgIcon name={key} className="h-5 w-5 fill-white" /> {value}
             </li>
           ))}
         </ul>

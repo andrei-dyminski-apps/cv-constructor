@@ -20,13 +20,13 @@ export const Languages = () => {
         <ul className="flex flex-col gap-2 py-1">
           {Object.entries(languages).map(([key, value]) => (
             <li key={key} className="flex items-start gap-2">
-              <div className="capitalize leading-3">{key}</div>
-              <div className="flex flex-col gap-1 ml-auto items-end">
+              <div className="leading-3 capitalize">{key}</div>
+              <div className="ml-auto flex flex-col items-end gap-1">
                 <ul className="flex gap-2">
                   {levels.map((_, index) => (
                     <li
                       key={index}
-                      className={`w-3.5 h-3.5 rounded-full bg-white ${index < value ? 'opacity-100' : 'opacity-25'}`}
+                      className={`h-3.5 w-3.5 rounded-full bg-white ${index < value ? 'opacity-100' : 'opacity-25'}`}
                     />
                   ))}
                 </ul>

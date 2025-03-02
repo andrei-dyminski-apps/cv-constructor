@@ -10,7 +10,7 @@ export function meta({}: Route.MetaArgs) {
 
 export default function Home() {
   return (
-    <div className="flex w-[240mm] mx-auto my-2.5 grow">
+    <div className="mx-auto my-2.5 flex w-[240mm] grow">
       <Aside />
     </div>
   );
