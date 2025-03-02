@@ -1,11 +1,12 @@
 import type { Route } from './+types/home';
 import { Aside } from '~/components/aside';
+import { useData } from '~/hooks/data';
 
 export function meta({}: Route.MetaArgs) {
-  return [
-    { title: 'New React Router App' },
-    { name: 'description', content: 'Welcome to React Router!' },
-  ];
+  const { personal } = useData();
+  const name = `CV ${personal.name}`;
+
+  return [{ title: name }, { name: 'description', content: name }];
 }
 
 export default function Home() {

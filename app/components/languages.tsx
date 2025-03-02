@@ -17,11 +17,11 @@ export const Languages = () => {
   return (
     <>
       <AsideSection name="Languages">
-        <ul className="flex flex-col gap-2 py-1">
+        <ul className="flex flex-col gap-4 py-1">
           {Object.entries(languages).map(([key, value]) => (
             <li key={key} className="flex items-start gap-2">
               <div className="leading-3 capitalize">{key}</div>
-              <div className="ml-auto flex flex-col items-end gap-1">
+              <div className="ml-auto flex flex-col items-end gap-2">
                 <ul className="flex gap-2">
                   {levels.map((_, index) => (
                     <li
@@ -30,7 +30,7 @@ export const Languages = () => {
                     />
                   ))}
                 </ul>
-                <div className="text-xs">{getLevel(value)}</div>
+                <div className="text-xs leading-none">{getLevel(value)}</div>
               </div>
             </li>
           ))}

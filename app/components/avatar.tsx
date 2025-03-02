@@ -7,7 +7,7 @@ export const Avatar = () => {
       <img
         src={personal.avatar}
         alt={personal.name}
-        className="mx-auto my-4 w-32 rounded-2xl"
+        className="mx-auto my-4 w-28 rounded-2xl shadow-2xl"
       />
     </>
   );
