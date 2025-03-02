@@ -11,7 +11,7 @@ export const ExperienceList = () => {
           <li key={index}>
             <ExperienceItem {...item} />
             {index < experience.length - 1 && (
-              <div className="mx-24 mt-2.5 border-b border-blue-900" />
+              <div className="mx-36 mt-2.5 border-b border-blue-900" />
             )}
           </li>
         ))}

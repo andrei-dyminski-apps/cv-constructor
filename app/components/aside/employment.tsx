@@ -7,7 +7,7 @@ export const Employment = () => {
   return (
     <>
       <AsideSection name="Employment">
-        <ul className="flex flex-col gap-1">
+        <ul className="flex flex-col gap-2">
           {employment.map((value, index) => (
             <li key={index} className="flex items-center gap-2">
               <Bullet />

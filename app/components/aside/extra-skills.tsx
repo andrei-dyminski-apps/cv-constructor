@@ -7,7 +7,7 @@ export const ExtraSkills = () => {
   return (
     <>
       <AsideSection name="Extra Skills">
-        <ul className="flex flex-col gap-1">
+        <ul className="flex flex-col gap-2">
           {skills.extra.map((list, index) => (
             <li key={index} className="flex items-center gap-2">
               <Bullet /> {list.join(', ')}

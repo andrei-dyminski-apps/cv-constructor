@@ -10,8 +10,8 @@ export const Aside = () => {
     <section className="w-1/3 bg-blue-900 text-sm text-white">
       <Avatar />
       <Contacts />
-      <Employment />
       <Languages />
+      <Employment />
       <CoreSkills />
       <ExtraSkills />
     </section>
