@@ -81,7 +81,4 @@ export const data = {
   ],
 };
 
-// Job responsibilities:
-// Achievements:
-
 export const DataContext = createContext(data);
