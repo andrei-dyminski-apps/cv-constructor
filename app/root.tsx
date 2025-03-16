@@ -9,7 +9,10 @@ import {
 
 import type { Route } from './+types/root';
 import './app.css';
-import { data, DataContext } from './providers/data';
+import { DataProvider } from './providers/data';
+import { Settings } from '~/components/settings/settings';
+import { SvgIcon } from '~/components/SvgIcon';
+import { type ReactNode, Suspense } from 'react';
 
 export const links: Route.LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -24,7 +27,7 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
-export function Layout({ children }: { children: React.ReactNode }) {
+export function Layout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
@@ -35,7 +38,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body className="absolute top-0 left-0 flex h-full w-full flex-col p-0">
-        <DataContext.Provider value={data}>{children}</DataContext.Provider>
+        <DataProvider>{children}</DataProvider>
         <ScrollRestoration />
         <Scripts />
       </body>

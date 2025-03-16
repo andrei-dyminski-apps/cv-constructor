@@ -3,12 +3,12 @@ import { useData } from '~/hooks/data';
 import { Bullet } from '~/components/bullet';
 
 export const Employment = () => {
-  const { employment } = useData();
+  const { data } = useData();
   return (
     <>
       <AsideSection name="Employment">
         <ul className="flex flex-col gap-2">
-          {employment.map((value, index) => (
+          {data.employment.map((value, index) => (
             <li key={index} className="flex items-center gap-2">
               <Bullet />
               {value}

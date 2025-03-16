@@ -2,7 +2,7 @@ import { AsideSection } from '~/components/aside/aside-section';
 import { useData } from '~/hooks/data';
 
 export const Languages = () => {
-  const { languages } = useData();
+  const { data } = useData();
   const levels = [
     'A1 Beginner',
     'A2 Elementary',
@@ -18,7 +18,7 @@ export const Languages = () => {
     <>
       <AsideSection name="Languages">
         <ul className="flex flex-col gap-4 py-1">
-          {Object.entries(languages).map(([key, value]) => (
+          {Object.entries(data.languages).map(([key, value]) => (
             <li key={key} className="flex items-start gap-2">
               <div className="leading-3 capitalize">{key}</div>
               <div className="ml-auto flex flex-col items-end gap-2">

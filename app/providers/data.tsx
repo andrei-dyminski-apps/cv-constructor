@@ -1,4 +1,11 @@
-import { createContext } from 'react';
+import {
+  createContext,
+  type Dispatch,
+  type ReactNode,
+  type SetStateAction,
+  useMemo,
+  useState,
+} from 'react';
 
 export const data = {
   personal: {
@@ -81,4 +88,64 @@ export const data = {
   ],
 };
 
-export const DataContext = createContext(data);
+type Options = Record<string, boolean>;
+
+type DataContextType = {
+  data: typeof data;
+  coreSkills: Options;
+  extraSkills: Options;
+  setCoreSkills: Dispatch<SetStateAction<Options>>;
+  setExtraSkills: Dispatch<SetStateAction<Options>>;
+};
+
+export const DataContext = createContext<DataContextType>({
+  data,
+  coreSkills: {},
+  extraSkills: {},
+  setCoreSkills: () => {},
+  setExtraSkills: () => {},
+});
+
+export const DataProvider = ({ children }: { children: ReactNode }) => {
+  const [coreSkills, setCoreSkills] = useState<Record<string, boolean>>({
+    react: false,
+    vue: false,
+    typescript: false,
+  });
+
+  const [extraSkills, setExtraSkills] = useState<Record<string, boolean>>(() =>
+    data.skills.extra.reduce(
+      (acc, items) => {
+        items.forEach((item) => {
+          acc[item] = false;
+        });
+        return acc;
+      },
+      {} as Record<string, boolean>
+    )
+  );
+
+  const filteredData = useMemo(() => {
+    const result = JSON.parse(JSON.stringify(data));
+    result.skills.core = result.skills.core.filter((skill) =>
+      Object.entries(coreSkills).some(
+        ([key, value]) =>
+          value && skill.toLowerCase().includes(key.toLowerCase())
+      )
+    );
+    return result;
+  }, [coreSkills, extraSkills]);
+
+  const value = useMemo(
+    () => ({
+      data: filteredData,
+      coreSkills,
+      extraSkills,
+      setCoreSkills,
+      setExtraSkills,
+    }),
+    [filteredData, coreSkills, extraSkills]
+  );
+
+  return <DataContext.Provider value={value}>{children}</DataContext.Provider>;
+};

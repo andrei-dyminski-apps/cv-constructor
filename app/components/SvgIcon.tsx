@@ -1,4 +1,4 @@
-import { lazy } from 'react';
+import { lazy, Suspense } from 'react';
 
 const icons = import.meta.glob('../assets/icons/*.svg');
 
@@ -16,5 +16,9 @@ export const SvgIcon = ({
   // @ts-expect-error correct type
   const IconComponent = lazy(importIcon);
 
-  return <IconComponent className={className} />;
+  return (
+    <Suspense fallback={<span>Loading...</span>}>
+      <IconComponent className={`overflow-hidden ${className}`} />
+    </Suspense>
+  );
 };
