@@ -108,9 +108,9 @@ export const DataContext = createContext<DataContextType>({
 
 export const DataProvider = ({ children }: { children: ReactNode }) => {
   const [coreSkills, setCoreSkills] = useState<Record<string, boolean>>({
-    react: false,
-    vue: false,
-    typescript: false,
+    react: true,
+    vue: true,
+    typescript: true,
   });
 
   const [extraSkills, setExtraSkills] = useState<Record<string, boolean>>(() =>
@@ -127,12 +127,18 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
 
   const filteredData = useMemo(() => {
     const result = JSON.parse(JSON.stringify(data));
-    result.skills.core = result.skills.core.filter((skill) =>
+    result.skills.core = result.skills.core.filter((skill: string) =>
       Object.entries(coreSkills).some(
         ([key, value]) =>
-          value && skill.toLowerCase().includes(key.toLowerCase())
+          Object.keys(coreSkills).every(
+            (key) => !skill.toLowerCase().includes(key)
+          ) ||
+          (value && skill.toLowerCase().includes(key.toLowerCase()))
       )
     );
+    result.skills.extra = result.skills.extra
+      .map((skills: string[]) => skills.filter((skill) => extraSkills[skill]))
+      .filter((skills: string[]) => skills.length);
     return result;
   }, [coreSkills, extraSkills]);
 

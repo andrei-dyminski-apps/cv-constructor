@@ -17,7 +17,7 @@ export const SvgIcon = ({
   const IconComponent = lazy(importIcon);
 
   return (
-    <Suspense fallback={<span>Loading...</span>}>
+    <Suspense fallback={<span />}>
       <IconComponent className={`overflow-hidden ${className}`} />
     </Suspense>
   );
