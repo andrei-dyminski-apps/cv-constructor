@@ -27,13 +27,13 @@ export const ExperienceItem = ({
       {responsibilities.length && (
         <div className="flex flex-col gap-1 text-sm">
           <h3 className="font-bold">Job Responsibilities:</h3>
-          <List list={responsibilities} />
+          <List items={responsibilities} />
         </div>
       )}
       {!!achievements.length && (
         <div className="flex flex-col gap-1 text-sm">
           <h3 className="font-bold">Achievements:</h3>
-          <List list={achievements} />
+          <List items={achievements} />
         </div>
       )}
     </section>

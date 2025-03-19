@@ -5,7 +5,7 @@ import { ExperienceItem } from '~/components/main/experience-item';
 export const ExperienceList = () => {
   const { data } = useData();
   return (
-    <MainSection name="Experience">
+    <MainSection name="Experience" icon="experience">
       <ul className="flex flex-col gap-2">
         {data.experience.map((item, index) => (
           <li key={index}>

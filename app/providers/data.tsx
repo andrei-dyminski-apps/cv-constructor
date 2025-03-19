@@ -47,6 +47,19 @@ export const data = {
       ['JQuery', 'Bootstrap'],
     ],
   },
+  about_me: `
+    I am a results-oriented Front-End Engineer with over seven years of experience in developing and optimizing high-performance web applications.
+    <div class="my-1.5"/>
+    Passionate about continuous learning and professional growth, I am committed to exceeding expectations through excellence in development, communication, and collaboration. My ability to work effectively with teams ensures successful project completion on time and within budget.
+    <div class="my-1.5"/>
+    I have a proven track record of delivering measurable results, including:
+    <div class="my-1.5"/>
+    <ul class="list-disc list-inside">
+      <li>Optimizing page load speed by 20%, which significantly boosted conversion rates.</li>
+      <li>Reducing bugs by 35% through robust testing systems (Jest, Vitest, Cypress, Playwright).</li>
+      <li>Implementing CI/CD processes using Vercel and GitHub Actions, reducing deployment time by 40%.</li>
+    </ul>
+  `,
   experience: [
     {
       period: '09.2022 — now',

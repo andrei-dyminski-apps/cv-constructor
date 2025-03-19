@@ -3,9 +3,11 @@ import { SvgIcon } from '~/components/svg-icon';
 
 export const MainSection = ({
   name,
+  icon,
   children,
 }: {
   name: string;
+  icon: string;
   children: ReactNode;
 }) => {
   return (
@@ -14,7 +16,7 @@ export const MainSection = ({
         <h2 className="font-bold uppercase">{name}</h2>
         <div className="min-w-0 grow border-b"></div>
         <div className="flex h-10 w-10 rounded-full border">
-          <SvgIcon name={name} className="m-auto h-5 w-5" />
+          <SvgIcon name={icon} className="m-auto h-5 w-5" />
         </div>
       </header>
       <div>{children}</div>

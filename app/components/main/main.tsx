@@ -1,5 +1,6 @@
 import { ExperienceList } from '~/components/main/experience-list';
 import { useData } from '~/hooks/data';
+import { AboutMe } from '~/components/main/about-me';
 
 export const Main = () => {
   const { data } = useData();
@@ -9,6 +10,7 @@ export const Main = () => {
         {data.personal.name}
       </h1>
       <ExperienceList />
+      <AboutMe />
     </div>
   );
 };
