@@ -59,13 +59,12 @@ export const data = {
         'Developing backend REST APIs using Node.js, Express.js, Supabase.js, Joi.js, and Vitest.js.',
         'Implementing unit tests with Jest.js, integration tests with Vitest, and end-to-end (E2E) tests using Cypress.js.',
         'Integrating and managing CMS solutions such as Supabase, Strapi, and Directus.',
-        'Optimizing performance to enhance page load speed.',
         'Implementing responsive, adaptive, and cross-browser-compatible layouts.',
       ],
       achievements: [
-        'Optimized performance to reduce page load speed by 20%, significantly boosting conversion rates.',
-        'Implemented testing systems using Jest, Vitest, and Cypress, resulting in a 35% reduction in bugs and enhanced software reliability.',
-        'Implemented integration and deployment processes (CI/CD) using Vercel and GitHub Actions, reducing deployment time by 40%.',
+        'Optimized performance, reducing page load speed by 20% and significantly boosting conversion rates.',
+        'Implemented testing systems using Jest, Vitest, and Cypress, achieving a 35% reduction in bugs and enhancing software reliability.',
+        'Developed and streamlined CI/CD processes using Vercel and GitHub Actions, cutting deployment time by 40%.',
       ],
     },
     {
