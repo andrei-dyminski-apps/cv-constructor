@@ -7,6 +7,14 @@ import {
   useState,
 } from 'react';
 
+type Experience = {
+  period: string;
+  company: string;
+  position: string;
+  responsibilities: string[];
+  achievements: string[];
+};
+
 export const data = {
   personal: {
     avatar: '/assets/images/avatar.jpg',
@@ -45,12 +53,14 @@ export const data = {
       company: 'SWAG 42',
       position: 'Full Stack Engineer',
       responsibilities: [
-        'Building and refactoring web applications using Vue.js, Pinia, Vue Router, Nuxt, React, Next.js, Redux, React Query and TypeScript.',
-        'Development backend REST API using Node.js, Express.js, Supabase.js, Joi.js and Vitest.js.',
-        'Implementation unit tests using Jest.js, integration tests with Vitest, (E2E) tests using Cypress.js.',
-        'Integration and management CMS solutions such as Supabase, Strapi, and Directus.',
-        'Optimization performance to improve page load speed.',
-        'Implementation responsive, adaptive, and cross-browser compatible layouts.',
+        'Building and refactoring web applications using Vue.js, Pinia, Vue Router, and Nuxt.',
+        'Building and refactoring web applications using React, Next.js, Redux, and React Query.',
+        'Developing and maintaining a scalable TypeScript codebase, ensuring type safety and minimizing runtime errors.',
+        'Developing backend REST APIs using Node.js, Express.js, Supabase.js, Joi.js, and Vitest.js.',
+        'Implementing unit tests with Jest.js, integration tests with Vitest, and end-to-end (E2E) tests using Cypress.js.',
+        'Integrating and managing CMS solutions such as Supabase, Strapi, and Directus.',
+        'Optimizing performance to enhance page load speed.',
+        'Implementing responsive, adaptive, and cross-browser-compatible layouts.',
       ],
       achievements: [
         'Optimized performance to reduce page load speed by 20%, significantly boosting conversion rates.',
@@ -63,12 +73,13 @@ export const data = {
       company: 'Imedia Solutions',
       position: 'Frontend Engineer',
       responsibilities: [
-        'Development web applications using TypeScript, Vue.js, Vuex, Vue Router and Nuxt.js.',
-        'Implementation unit tests using Jest.js, (E2E) tests using Playwright.js.',
-        'Working with REST API and SSR (Server-Side Rendering)',
-        'Implementation responsive, adaptive, and cross-browser compatible layouts.',
+        'Building and refactoring web applications using Vue.js, Vuex, Vue Router, and Nuxt.',
+        'Developing and maintaining a scalable TypeScript codebase, ensuring type safety and minimizing runtime errors.',
+        'Implementing unit tests using Jest.js and end-to-end (E2E) tests with Playwright.js.',
+        'Working with REST APIs and Server-Side Rendering (SSR).',
+        'Implementing responsive, adaptive, and cross-browser-compatible layouts.',
         'Refactoring existing codebases to improve maintainability and efficiency.',
-        'Optimization performance of page load speed.',
+        'Optimizing performance to enhance page load speed.',
       ],
       achievements: [],
     },
@@ -77,11 +88,13 @@ export const data = {
       company: 'New site',
       position: 'Frontend Engineer',
       responsibilities: [
-        'Development web applications using React, Redux, React Query, React Router Next.js, Vue.js, Vuex, Vue Router, Nuxt.js and TypeScript.',
-        'Creating website layouts and templates for CMS 1C-Bitrix.',
-        'Implementation responsive, cross-browser compatible user interfaces.',
+        'Building and refactoring web applications using Vue.js, Pinia, Vue Router, and Nuxt.',
+        'Building and refactoring web applications using React, Next.js, Redux, and React Query.',
+        'Developing and maintaining a scalable TypeScript codebase, ensuring type safety and minimizing runtime errors.',
+        'Creating website layouts and templates for the 1C-Bitrix CMS.',
+        'Implementing responsive, cross-browser-compatible user interfaces.',
         'Refactoring existing codebases to improve maintainability and efficiency.',
-        'Optimization performance of page load speed.',
+        'Optimizing performance to enhance page load speed.',
       ],
       achievements: [],
     },
@@ -125,9 +138,8 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
     )
   );
 
-  const filteredData = useMemo(() => {
-    const result = JSON.parse(JSON.stringify(data));
-    result.skills.core = result.skills.core.filter((skill: string) =>
+  const filterByCoreSkills = (data: string[]) =>
+    data.filter((skill: string) =>
       Object.entries(coreSkills).some(
         ([key, value]) =>
           Object.keys(coreSkills).every(
@@ -136,9 +148,21 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
           (value && skill.toLowerCase().includes(key.toLowerCase()))
       )
     );
+
+  const filteredData = useMemo(() => {
+    const result = JSON.parse(JSON.stringify(data));
+
+    result.skills.core = filterByCoreSkills(result.skills.core);
+
     result.skills.extra = result.skills.extra
       .map((skills: string[]) => skills.filter((skill) => extraSkills[skill]))
       .filter((skills: string[]) => skills.length);
+
+    result.experience = result.experience.map((item: Experience) => ({
+      ...item,
+      responsibilities: filterByCoreSkills(item.responsibilities),
+    }));
+
     return result;
   }, [coreSkills, extraSkills]);
 

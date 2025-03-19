@@ -10,9 +10,7 @@ import {
 import type { Route } from './+types/root';
 import './app.css';
 import { DataProvider } from './providers/data';
-import { Settings } from '~/components/settings/settings';
-import { SvgIcon } from '~/components/SvgIcon';
-import { type ReactNode, Suspense } from 'react';
+import { type ReactNode } from 'react';
 
 export const links: Route.LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
