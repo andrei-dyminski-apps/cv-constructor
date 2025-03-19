@@ -54,11 +54,6 @@ export const data = {
     <div class="my-1.5"/>
     I have a proven track record of delivering measurable results, including:
     <div class="my-1.5"/>
-    <ul class="list-disc list-inside">
-      <li>Optimizing page load speed by 20%, which significantly boosted conversion rates.</li>
-      <li>Reducing bugs by 35% through robust testing systems (Jest, Vitest, Cypress, Playwright).</li>
-      <li>Implementing CI/CD processes using Vercel and GitHub Actions, reducing deployment time by 40%.</li>
-    </ul>
   `,
   experience: [
     {
