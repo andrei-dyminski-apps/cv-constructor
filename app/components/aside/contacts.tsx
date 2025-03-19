@@ -1,6 +1,6 @@
 import { AsideSection } from '~/components/aside/aside-section';
 import { useData } from '~/hooks/data';
-import { SvgIcon } from '~/components/SvgIcon';
+import { SvgIcon } from '~/components/svg-icon';
 
 export const Contacts = () => {
   const { data } = useData();

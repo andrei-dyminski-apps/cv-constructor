@@ -1,4 +1,4 @@
-import { SvgIcon } from '~/components/SvgIcon';
+import { SvgIcon } from '~/components/svg-icon';
 
 export const Button = ({
   icon,

@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { SvgIcon } from '~/components/SvgIcon';
+import { SvgIcon } from '~/components/svg-icon';
 
 export const MainSection = ({
   name,

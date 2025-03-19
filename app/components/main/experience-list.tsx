@@ -1,4 +1,4 @@
-import { MainSection } from '~/components/main/MainSection';
+import { MainSection } from '~/components/main/main-section';
 import { useData } from '~/hooks/data';
 import { ExperienceItem } from '~/components/main/experience-item';
 
