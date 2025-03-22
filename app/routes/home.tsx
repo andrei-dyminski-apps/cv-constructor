@@ -13,7 +13,7 @@ export function meta({}: Route.MetaArgs) {
 
 export default function Home() {
   return (
-    <div className="mx-auto flex w-[210mm] grow">
+    <div className="mx-auto flex h-[594mm] w-[210mm] grow">
       <Actions />
       <Aside />
       <Main />

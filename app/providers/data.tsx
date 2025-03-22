@@ -70,7 +70,7 @@ export const data = {
         'Implementing responsive, adaptive, and cross-browser-compatible layouts.',
       ],
       achievements: [
-        'Optimized performance, reducing page load speed by 20% and significantly boosting conversion rates.',
+        'Optimized performance, reducing page load speed by 30% and significantly boosting conversion rates.',
         'Implemented testing systems using Jest, Vitest, and Cypress, achieving a 35% reduction in bugs and enhancing software reliability.',
         'Developed and streamlined CI/CD processes using Vercel and GitHub Actions, cutting deployment time by 40%.',
       ],
@@ -86,7 +86,6 @@ export const data = {
         'Working with REST APIs and Server-Side Rendering (SSR).',
         'Implementing responsive, adaptive, and cross-browser-compatible layouts.',
         'Refactoring existing codebases to improve maintainability and efficiency.',
-        'Optimizing performance to enhance page load speed.',
       ],
       achievements: [],
     },
@@ -101,7 +100,6 @@ export const data = {
         'Creating website layouts and templates for the 1C-Bitrix CMS.',
         'Implementing responsive, cross-browser-compatible user interfaces.',
         'Refactoring existing codebases to improve maintainability and efficiency.',
-        'Optimizing performance to enhance page load speed.',
       ],
       achievements: [],
     },
@@ -128,7 +126,7 @@ export const DataContext = createContext<DataContextType>({
 
 export const DataProvider = ({ children }: { children: ReactNode }) => {
   const [coreSkills, setCoreSkills] = useState<Record<string, boolean>>({
-    react: true,
+    react: false,
     vue: true,
     typescript: true,
   });
