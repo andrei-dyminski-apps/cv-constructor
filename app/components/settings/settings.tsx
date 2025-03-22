@@ -2,7 +2,7 @@ import { Modal } from '~/components/settings/modal';
 import { useData } from '~/hooks/data';
 import { useEffect, useState } from 'react';
 import { Checkbox } from '~/components/settings/checkbox';
-import { Button } from '~/components/button';
+import { Button } from '~/components/actions/button';
 import type { CheckboxEvent } from '~/types/checkbox';
 
 export const Settings = () => {

@@ -8,7 +8,7 @@ export const Checkbox = ({
 }: {
   label: string;
   value: boolean;
-  onChange: (e: CheckboxEvent) => void;
+  onChange: (data: CheckboxEvent) => void;
 }) => {
   const input = useRef<HTMLInputElement | null>(null);
 

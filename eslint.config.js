@@ -17,6 +17,8 @@ export default [
     languageOptions: { globals: globals.browser },
     rules: {
       'react/react-in-jsx-scope': 'off',
+      '@typescript-eslint/no-namespace': 'off',
+      '@typescript-eslint/no-empty-object-type': 'off',
     },
     ignores: ['.idea/', '.react-router/'],
   },

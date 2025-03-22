@@ -1,5 +1,5 @@
 import { Settings } from '~/components/settings/settings';
-import { Print } from '~/components/print';
+import { Print } from '~/components/actions/print';
 
 export const Actions = () => {
   return (

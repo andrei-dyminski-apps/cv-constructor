@@ -1,4 +1,4 @@
-import { Button } from '~/components/button';
+import { Button } from '~/components/actions/button';
 
 export const Print = () => {
   const handlePrint = () => window.print();
