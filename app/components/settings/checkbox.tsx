@@ -26,7 +26,6 @@ export const Checkbox = ({
     <label
       className="-m-1 flex cursor-pointer items-center gap-2 p-1 hover:underline"
       tabIndex={0}
-      onClick={handleToggle}
       onKeyDown={handleKeyDown}
     >
       <input
