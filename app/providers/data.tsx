@@ -22,8 +22,10 @@ export const data = {
     name: 'Andrei Dyminski',
   },
   contacts: {
-    email: 'andrei.dyminski@gmail.com',
-    phone: '+48 573 098 898',
+    linkedin: 'https://linkedin.com/in/andrei-dyminski-4a9508202/',
+    github: 'https://github.com/andrei-dyminski-apps',
+    email: 'mailto:andrei.dyminski@gmail.com',
+    phone: 'tel:+48 573 098 898',
     location: 'Poland, Bialystok',
   },
   employment: ['Full-time', 'Remote work'],
@@ -52,6 +54,8 @@ export const data = {
     I am a results-oriented Front-End Engineer with over seven years of experience in developing and optimizing high-performance web applications.
     <div class="my-1.5"/>
     Passionate about continuous learning and professional growth, I am committed to exceeding expectations through excellence in development, communication, and collaboration. My ability to work effectively with teams ensures successful project completion on time and within budget.
+    <div class="my-1.5"/>
+    I have experience providing code review and mentoring junior developers, helping them improve their technical skills and solve problems.
     <div class="my-1.5"/>
     I have a proven track record of delivering measurable results, including:
     <div class="my-1.5"/>

@@ -18,7 +18,7 @@ export const SvgIcon = memo(function SvgIcon({
 
   return (
     <Suspense fallback={<span />}>
-      <IconComponent className={`overflow-hidden ${className}`} />
+      <IconComponent className={`shrink-0 ${className}`} />
     </Suspense>
   );
 });
