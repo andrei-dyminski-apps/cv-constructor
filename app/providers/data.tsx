@@ -3,6 +3,7 @@ import {
   type Dispatch,
   type ReactNode,
   type SetStateAction,
+  useEffect,
   useMemo,
   useState,
 } from 'react';
@@ -112,6 +113,8 @@ type DataContextType = {
   data: typeof data;
   coreSkills: Options;
   extraSkills: Options;
+  selectedAllExtraSkills: boolean;
+  toggleAllExtraSkills: (value: boolean) => void;
   setCoreSkills: Dispatch<SetStateAction<Options>>;
   setExtraSkills: Dispatch<SetStateAction<Options>>;
 };
@@ -120,6 +123,8 @@ export const DataContext = createContext<DataContextType>({
   data,
   coreSkills: {},
   extraSkills: {},
+  selectedAllExtraSkills: false,
+  toggleAllExtraSkills: () => {},
   setCoreSkills: () => {},
   setExtraSkills: () => {},
 });
@@ -142,6 +147,17 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
       {} as Record<string, boolean>
     )
   );
+
+  const [selectedAllExtraSkills, setSelectedAllExtraSkills] = useState(
+    Object.values(extraSkills).every(Boolean)
+  );
+  const toggleAllExtraSkills = (value: boolean) => {
+    Object.keys(extraSkills).forEach((key) => (extraSkills[key] = value));
+    setSelectedAllExtraSkills(value);
+  };
+  useEffect(() => {
+    setSelectedAllExtraSkills(Object.values(extraSkills).every(Boolean));
+  }, [extraSkills]);
 
   const filterByCoreSkills = (data: string[]) =>
     data.filter((skill: string) =>
@@ -176,10 +192,12 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
       data: filteredData,
       coreSkills,
       extraSkills,
+      selectedAllExtraSkills,
+      toggleAllExtraSkills,
       setCoreSkills,
       setExtraSkills,
     }),
-    [filteredData, coreSkills, extraSkills]
+    [filteredData, coreSkills, extraSkills, selectedAllExtraSkills]
   );
 
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>;

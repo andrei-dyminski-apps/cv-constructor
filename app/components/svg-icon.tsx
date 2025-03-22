@@ -1,14 +1,14 @@
-import { lazy, Suspense } from 'react';
+import { lazy, memo, Suspense } from 'react';
 
 const icons = import.meta.glob('../assets/icons/*.svg');
 
-export const SvgIcon = ({
+export const SvgIcon = memo(function SvgIcon({
   name,
   className = '',
 }: {
   name: string;
   className?: string;
-}) => {
+}) {
   const importIcon = icons[`../assets/icons/${name.toLowerCase()}.svg`];
 
   if (!importIcon) return null;
@@ -21,4 +21,4 @@ export const SvgIcon = ({
       <IconComponent className={`overflow-hidden ${className}`} />
     </Suspense>
   );
-};
+});
