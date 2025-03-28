@@ -43,9 +43,12 @@ export const data = {
     extra: [
       ['Webpack', 'Gulp', 'Grunt', 'Vite'],
       ['Tailwindcss', 'Sass', 'Less'],
+      ['Axios', 'REST-API'],
       ['Cypress', 'Jest', 'Vitest', 'Playwright'],
       ['Element plus', 'Vuetify', 'Antd'],
       ['Node', 'Express', 'Joi', 'JWT'],
+      ['Python'],
+      ['CI/CD', 'Vercel', 'GitHub Actions'],
       ['1С-Bitrix', 'Strapi', 'Supabase', 'Directus', 'Wordpress'],
       ['JQuery', 'Bootstrap'],
     ],
@@ -137,8 +140,10 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
   const [coreSkills, setCoreSkills] = useState<Record<string, boolean>>({
     react: false,
     vue: true,
-    typescript: true,
   });
+  const activeCoreSkills = Object.entries(coreSkills)
+    .filter(([_, status]) => status)
+    .map(([skill]) => skill);
 
   const [extraSkills, setExtraSkills] = useState<Record<string, boolean>>(() =>
     data.skills.extra.reduce(
@@ -163,16 +168,19 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
     setSelectedAllExtraSkills(Object.values(extraSkills).every(Boolean));
   }, [extraSkills]);
 
-  const filterByCoreSkills = (data: string[]) =>
-    data.filter((skill: string) =>
-      Object.entries(coreSkills).some(
-        ([key, value]) =>
-          Object.keys(coreSkills).every(
-            (key) => !skill.toLowerCase().includes(key)
-          ) ||
-          (value && skill.toLowerCase().includes(key.toLowerCase()))
-      )
+  const filterByCoreSkills = (entries: string[]) => {
+    const coincidences = entries.filter((entry) =>
+      activeCoreSkills.some((skill) => entry.toLowerCase().includes(skill))
     );
+    if (!coincidences.length) return entries;
+    return entries.filter(
+      (entry) =>
+        !Object.keys(coreSkills).some((skill) =>
+          entry.toLowerCase().includes(skill)
+        ) ||
+        activeCoreSkills.some((skill) => entry.toLowerCase().includes(skill))
+    );
+  };
 
   const filteredData = useMemo(() => {
     const result = JSON.parse(JSON.stringify(data));
